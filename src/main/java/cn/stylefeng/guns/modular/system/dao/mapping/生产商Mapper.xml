@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.stylefeng.guns.modular.system.dao.生产商Mapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="cn.stylefeng.guns.modular.system.model.生产商">
+        <id column="id" property="id" />
+        <result column="生产商名称" property="生产商名称" />
+        <result column="联系人" property="联系人" />
+        <result column="生产商地址" property="生产商地址" />
+        <result column="联系电话" property="联系电话" />
+        <result column="邮编" property="邮编" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, 生产商名称, 联系人, 生产商地址, 联系电话, 邮编
+    </sql>
+
+    <insert id="insert">
+		insert into egg_生产商(生产商名称,联系人,生产商地址,联系电话,邮编)
+		values(#{生产商名称},#{联系人},#{生产商地址},#{联系电话},#{邮编})
+	</insert>
+
+</mapper>

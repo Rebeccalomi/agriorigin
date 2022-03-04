@@ -1,0 +1,17 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<table>
+    <th>鸡蛋批次号</th>
+    <th>物流中心编号</th>
+    <th>仓库编号</th>
+    <th>检测结果</th>
+    <th>时间</th>
+    <th>是否流入市场</th>
+    <tr th:each="user : ${users}">
+        <td th:text="${user.id}"></td>
+        <td th:text="${user.物流中心编号}"></td>
+        <td th:text="${user.仓库编号}"></td>
+        <td th:text="${user.检测结果}"></td>
+        <td th:text="${user.时间}"></td>
+        <td th:text="${user.是否流入市场}"></td>
+    </tr>
+</table>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.stylefeng.guns.modular.system.dao.物流中心Mapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="cn.stylefeng.guns.modular.system.model.物流中心">
+        <id column="id" property="id" />
+        <result column="物流中心名称" property="物流中心名称" />
+        <result column="地址" property="地址" />
+        <result column="电话号码" property="电话号码" />
+        <result column="邮编" property="邮编" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, 物流中心名称, 地址, 电话号码, 邮编
+    </sql>
+
+    <insert id="insert">
+		insert into egg_物流中心(物流中心名称,地址,电话号码,邮编)
+		values(#{物流中心名称},#{地址},#{电话号码},#{邮编})
+	</insert>
+</mapper>

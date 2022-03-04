@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.stylefeng.guns.modular.system.dao.鸡蛋Mapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="cn.stylefeng.guns.modular.system.model.鸡蛋">
+        <id column="id" property="id" />
+        <result column="uuid" property="uuid" />
+        <result column="货物名称" property="货物名称" />
+        <result column="货物重量" property="货物重量" />
+        <result column="货物体积" property="货物体积" />
+        <result column="生产商编号" property="生产商编号" />
+        <result column="存放地点" property="存放地点" />
+        <result column="库存" property="库存" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id,uuid,货物名称, 货物重量, 货物体积, 生产商编号, 存放地点, 库存
+    </sql>
+
+    <insert id="insert">
+        INSERT INTO `egg_鸡蛋` (`货物名称`,`uuid`,`货物重量`, `货物体积`, `生产商编号`, `存放地点`, `库存`)
+        VALUES (#{货物名称},#{uuid},#{货物重量},#{货物体积},#{生产商编号},#{存放地点},#{库存})
+	</insert>
+
+
+</mapper>

@@ -1,0 +1,31 @@
+@layout("/common/_container.html"){
+<div class="ibox float-e-margins">
+    <div class="ibox-content">
+        <div class="form-horizontal">
+
+            <div class="row">
+                <div class="col-sm-6 b-r">
+                    仓库编号<#input id="id" name="" value="${item.id}" underline="true" readonly="readonly"/>
+                    所属物流中心编号<#input id="所属物流中心编号" name="" value="${item.所属物流中心编号}" underline="true"/>
+                    仓库地址<#input id="仓库地址" name="" value="${item.仓库地址}" />
+                </div>
+
+                <div class="col-sm-6">
+                    仓库性质<#input id="仓库性质" name="" value="${item.仓库性质}" underline="true"/>
+                    仓库总量<#input id="仓库总量" name="" value="${item.仓库总量}" underline="true"/>
+                    电话<#input id="电话" name="" value="${item.电话}" />
+                </div>
+            </div>
+
+            <div class="row btn-group-m-t">
+                <div class="col-sm-10">
+                    <#button btnCss="info" name="提交" id="ensure" icon="fa-check" clickFun="仓库InfoDlg.editSubmit()"/>
+                    <#button btnCss="danger" name="取消" id="cancel" icon="fa-eraser" clickFun="仓库InfoDlg.close()"/>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script src="${ctxPath}/static/modular/system/仓库/仓库_info.js"></script>
+@}

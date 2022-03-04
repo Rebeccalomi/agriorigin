@@ -1,0 +1,39 @@
+@layout("/common/_container.html"){
+<div class="ibox float-e-margins">
+    <div class="ibox-content">
+        <div class="form-horizontal">
+
+            <div class="row">
+                <div class="col-sm-6 b-r">
+                            鸡蛋批次号<#input id="id" name="" underline="true"/>
+                            物流中心编号<#input id="物流中心编号" name="" underline="true"/>
+                            仓库编号<#input id="仓库编号" name=""/>
+                </div>
+
+                <div class="col-sm-6">
+                            检测结果
+                                <select class="form-control" id="检测结果">
+                                    <option value="合格">合格</option>
+                                    <option value="不合格">不合格</option>
+                                </select>
+                                <br/>
+                            是否流入市场
+                                <select class="form-control" id="是否流入市场">
+                                    <option value="0">否</option>
+                                    <option value="1">是</option>
+                                </select>
+                </div>
+            </div>
+
+            <div class="row btn-group-m-t">
+                <div class="col-sm-10">
+                    <#button btnCss="info" name="提交" id="ensure" icon="fa-check" clickFun="提取InfoDlg.addSubmit()"/>
+                    <#button btnCss="danger" name="取消" id="cancel" icon="fa-eraser" clickFun="提取InfoDlg.close()"/>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script src="${ctxPath}/static/modular/system/提取/提取_info.js"></script>
+@}

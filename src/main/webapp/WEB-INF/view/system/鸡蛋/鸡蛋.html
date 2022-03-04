@@ -1,0 +1,41 @@
+@layout("/common/_container.html"){
+<div class="row">
+    <div class="col-sm-12">
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h5>鸡蛋批次管理</h5>
+            </div>
+            <div class="ibox-content">
+                <div class="row row-lg">
+                    <div class="col-sm-12">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <#NameCon id="condition" name="请输入批次号" />
+                            </div>
+                            <div class="col-sm-3">
+                                <#button name="搜索" icon="fa-search" clickFun="鸡蛋.search()"/>
+                            </div>
+                        </div>
+                        <div class="hidden-xs" id="鸡蛋TableToolbar" role="group">
+                            @if(shiro.hasPermission("/鸡蛋/add")){
+                                <#button name="添加" icon="fa-plus" clickFun="鸡蛋.openAdd鸡蛋()"/>
+                            @}
+                            @if(shiro.hasPermission("/鸡蛋/update")){
+                                <#button name="修改" icon="fa-edit" clickFun="鸡蛋.open鸡蛋Detail()" space="true"/>
+                            @}
+                            @if(shiro.hasPermission("/鸡蛋/erweima")){
+                            <#button name="生成二维码" icon="fa-edit" clickFun="鸡蛋.open二维码()" space="true"/>
+                            @}
+                            @if(shiro.hasPermission("/鸡蛋/delete")){
+                                <#button name="删除" icon="fa-remove" clickFun="鸡蛋.delete()" space="true"/>
+                            @}
+                        </div>
+                        <#table id="鸡蛋Table"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="${ctxPath}/static/modular/system/鸡蛋/鸡蛋.js"></script>
+@}

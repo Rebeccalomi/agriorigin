@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.stylefeng.guns.modular.system.dao.提取Mapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="cn.stylefeng.guns.modular.system.model.提取">
+        <id column="id" property="id" />
+        <result column="uuid" property="uuid" />
+        <result column="物流中心编号" property="物流中心编号" />
+        <result column="仓库编号" property="仓库编号" />
+        <result column="检测结果" property="检测结果" />
+        <result column="时间" property="时间" />
+        <result column="是否流入市场" property="是否流入市场" />
+        <result column="geth" property="geth" />
+
+        <association property="仓库" javaType="cn.stylefeng.guns.modular.system.model.仓库" >
+            <!-- id:声明主键，表示 college_id 是关联查询对象的唯一标识-->
+            <id column="id" property="id" />
+            <result column="仓库地址" property="仓库地址" />
+        </association>
+
+        <association property="物流中心" javaType="cn.stylefeng.guns.modular.system.model.物流中心" >
+            <!-- id:声明主键，表示 college_id 是关联查询对象的唯一标识-->
+            <id column="id" property="id" />
+            <result column="物流中心名称" property="物流中心名称" />
+        </association>
+
+        <association property="鸡蛋" javaType="cn.stylefeng.guns.modular.system.model.鸡蛋" >
+            <!-- id:声明主键，表示 college_id 是关联查询对象的唯一标识-->
+            <id column="id" property="id" />
+            <result column="uuid" property="uuid" />
+            <result column="存放地点" property="存放地点" />
+        </association>
+
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id,uuid,物流中心编号, 仓库编号, 检测结果, 时间, 是否流入市场
+    </sql>
+
+    <select id="getList1" resultType="cn.stylefeng.guns.modular.system.model.提取" >
+    select id,uuid,物流中心编号,仓库编号,检测结果,时间,是否流入市场
+    from egg_提取
+    where id=#{id}
+    order by 时间 DESC
+    </select>
+
+    <select id="selectList" resultType="cn.stylefeng.guns.modular.system.model.提取" >
+    select id,uuid,物流中心编号,仓库编号,检测结果,时间,是否流入市场
+    from egg_提取
+    order by 时间 DESC
+    </select>
+
+    <select id="selectById" resultType="cn.stylefeng.guns.modular.system.model.提取" >
+    select id,uuid,物流中心编号,仓库编号,检测结果,时间,是否流入市场
+    from egg_提取
+    where uuid=#{uuid}
+    </select>
+
+    <delete id="deleteById" >
+    delete
+    from egg_提取
+    where uuid=#{uuid}
+    </delete>
+
+    <select id="getList2" resultType="cn.stylefeng.guns.modular.system.model.提取" >
+    select a.id,物流中心名称,仓库地址,检测结果,时间,是否流入市场
+    from egg_提取 a,egg_仓库 b,egg_物流中心 c
+    where a.id=#{id} and a.仓库编号=b.id and a.物流中心编号=c.id
+    </select>
+
+    <select id="getList3" resultType="cn.stylefeng.guns.modular.system.model.提取" >
+    select a.id,物流中心名称,仓库地址,检测结果,时间,是否流入市场
+    from egg_提取 a,egg_仓库 b,egg_物流中心 c,egg_鸡蛋 d
+    where d.uuid=#{uuid} and a.仓库编号=b.id and a.物流中心编号=c.id and d.id = a.id
+    order by 时间 DESC
+    </select>
+
+    <update id="update123">
+        update egg_鸡蛋 a
+        set 存放地点=
+        (select 仓库地址
+        from egg_仓库 b
+        where #{仓库编号}=b.id)
+        where #{id}=a.id
+    </update>
+
+
+</mapper>

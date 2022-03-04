@@ -1,0 +1,31 @@
+@layout("/common/_container.html"){
+<div class="ibox float-e-margins">
+    <div class="ibox-content">
+        <div class="form-horizontal">
+
+            <div class="row">
+                <div class="col-sm-6 b-r">
+                    生产商编号<#input id="id" name="" value="${item.id}" underline="true" readonly="readonly"/>
+                    生产商名称<#input id="生产商名称" name="" value="${item.生产商名称}" underline="true"/>
+                    联系人<#input id="联系人" name="" value="${item.联系人}" />
+                </div>
+
+                <div class="col-sm-6">
+                    生产商地址<#input id="生产商地址" name="" value="${item.生产商地址}" underline="true"/>
+                    联系电话<#input id="联系电话" name="" value="${item.联系电话}" underline="true"/>
+                    邮编<#input id="邮编" name="" value="${item.邮编}" />
+                </div>
+            </div>
+
+            <div class="row btn-group-m-t">
+                <div class="col-sm-10">
+                    <#button btnCss="info" name="提交" id="ensure" icon="fa-check" clickFun="生产商InfoDlg.editSubmit()"/>
+                    <#button btnCss="danger" name="取消" id="cancel" icon="fa-eraser" clickFun="生产商InfoDlg.close()"/>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script src="${ctxPath}/static/modular/system/生产商/生产商_info.js"></script>
+@}

@@ -1,0 +1,32 @@
+@layout("/common/_container.html"){
+<div class="ibox float-e-margins">
+    <div class="ibox-content">
+        <div class="form-horizontal">
+
+            <div class="row">
+                <div class="col-sm-6 b-r">
+                    批次号<#input id="id" name="" value="${item.id}" underline="true" readonly="readonly"/>
+                    货物名称<#input id="货物名称" name="" value="${item.货物名称}" underline="true"/>
+                    货物重量<#input id="货物重量" name="" value="${item.货物重量}" underline="true"/>
+                    货物体积<#input id="货物体积" name="" value="${item.货物体积}" />
+                </div>
+
+                <div class="col-sm-6">
+                    生产商编号<#input id="生产商编号" name="" value="${item.生产商编号}" underline="true"/>
+                    存放地点<#input id="存放地点" name="" value="${item.存放地点}" underline="true"/>
+                    库存<#input id="库存" name="" value="${item.库存}" />
+                </div>
+            </div>
+
+            <div class="row btn-group-m-t">
+                <div class="col-sm-10">
+                    <#button btnCss="info" name="提交" id="ensure" icon="fa-check" clickFun="鸡蛋InfoDlg.editSubmit()"/>
+                    <#button btnCss="danger" name="取消" id="cancel" icon="fa-eraser" clickFun="鸡蛋InfoDlg.close()"/>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script src="${ctxPath}/static/modular/system/鸡蛋/鸡蛋_info.js"></script>
+@}
